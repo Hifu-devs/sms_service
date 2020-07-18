@@ -1,22 +1,22 @@
 require 'rubygems'
 require 'twilio-ruby'
 require 'sinatra'
-require 'sinatra/base'
+#require 'sinatra/base'
 require 'dotenv'
 require 'json'
 Dotenv.load
 
-class Microservice < Sinatra::Base
+#class Microservice < Sinatra::Base
 
 get '/' do
   "Hello World"
 end
 
 post '/alert' do
-  hifu_name = params["name"]
-  phone_number = params["phone"]
-  activity = params["activity"]
-  email = params["email"]
+  hifu_name = params["text_info"]["data"]["name"]
+  phone_number = params["text_info"]["data"]["phone"]
+  activity = params["text_info"]["data"]["activity"]
+  email = params["text_info"]["data"]["email"]
   account_sid = ENV['TWILIO_SID']
   auth_token = ENV['TWILIO_AUTH_TOKEN']
   client = Twilio::REST::Client.new(account_sid, auth_token)
@@ -33,7 +33,7 @@ post '/alert' do
 
 end
 
-end
+#end
 # post '/sms-quickstart' do
 #   twiml = Twilio::TwiML::MessagingResponse.new do |r|
 #     r.message(body: 'Sorry, this phone number is not monitored.')
