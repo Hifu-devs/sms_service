@@ -13,10 +13,11 @@ get '/' do
 end
 
 post '/alert' do
-  hifu_name = params["text_info"]["data"]["name"]
-  phone_number = params["text_info"]["data"]["phone"]
-  activity = params["text_info"]["data"]["activity"]
-  email = params["text_info"]["data"]["email"]
+  details = JSON.parse(request.body.read)
+  hifu_name = details["name"]
+  phone_number = details["phone"]
+  activity = details["activity"]
+  email = details["email"]
   account_sid = ENV['TWILIO_SID']
   auth_token = ENV['TWILIO_AUTH_TOKEN']
   client = Twilio::REST::Client.new(account_sid, auth_token)
@@ -33,7 +34,6 @@ post '/alert' do
 
 end
 
-#end
 # post '/sms-quickstart' do
 #   twiml = Twilio::TwiML::MessagingResponse.new do |r|
 #     r.message(body: 'Sorry, this phone number is not monitored.')
