@@ -1,2 +1,2 @@
 require './microservice'
-run Microservce.new
+run Sinatra::Application
