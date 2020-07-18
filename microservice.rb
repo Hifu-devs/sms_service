@@ -5,7 +5,7 @@ get '/' do
   "Hello World"
 end
 
-post '/alert' do
+post '/sms-quickstart' do
   twiml = Twilio::TwiML::MessagingResponse.new do |r|
     r.message(body: 'Ahoy! Thanks so much for your message.')
   end
