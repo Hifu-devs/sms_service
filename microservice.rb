@@ -13,10 +13,10 @@ get '/' do
 end
 
 post '/alert' do
-  hifu_name = params["information"]["data"]["name"]
-  phone_number = params["information"]["data"]["phone"]
-  activity = params["information"]["data"]["activity"]
-  email = params["information"]["data"]["email"]
+  hifu_name = params["name"]
+  phone_number = params["phone"]
+  activity = params["activity"]
+  email = params["email"]
   account_sid = ENV['TWILIO_SID']
   auth_token = ENV['TWILIO_AUTH_TOKEN']
   client = Twilio::REST::Client.new(account_sid, auth_token)

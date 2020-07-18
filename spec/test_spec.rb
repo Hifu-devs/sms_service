@@ -2,6 +2,7 @@ require './microservice.rb'
 require 'rack/test'
 
 
+
 describe "My Sinatra Application" do
   include Rack::Test::Methods
   def app
@@ -9,8 +10,11 @@ describe "My Sinatra Application" do
   end
 
   it "should send text message successfully" do
-    json = {"data" => {"phone"=>"+13038758190", "name"=>"John Doe", "activity"=>"kayaking", "email"=>"friend@example.com"}}
-    post '/alert', :information => json
+    user_data = { "phone" => "+13038758190",
+                  "name" => "John Doe",
+                  "activity" => "kayaking",
+                  "email" => "friend@example.com" }
+    post '/alert', user_data
     expect(last_response).to be_ok
   end
 end
