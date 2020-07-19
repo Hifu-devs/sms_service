@@ -9,7 +9,7 @@ Dotenv.load
 #class Microservice < Sinatra::Base
 
 get '/' do
-  "Hello World"
+  "``````Welcome to HIFU -- For when you want to get lost but still be found!``````"
 end
 
 post '/alert' do
