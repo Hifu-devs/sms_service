@@ -28,7 +28,7 @@ post '/alert' do
   client.messages.create(
   from: from,
   to: to,
-  body: "Uh oh! Your friend #{hifu_name} is has not checked in from their recent #{activity} trip.
+  body: "Uh oh! Your friend #{hifu_name} has not checked in from their recent #{activity} trip.
   Check your email at #{email} for more info and instructions for contacting the authorities."
   )
 
