@@ -25,7 +25,7 @@ post '/alert' do
     auth_token = ENV['TWILIO_AUTH_TOKEN']
     client = Twilio::REST::Client.new(account_sid, auth_token)
 
-    from = '+15005550000' # Your Twilio number
+    from = '+13344714617' # Your Twilio number
     to = phone_number # Your mobile phone number
 
     client.messages.create(
