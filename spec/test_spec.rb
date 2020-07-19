@@ -10,12 +10,8 @@ describe "My Sinatra Application" do
   end
 
   it "should send text message successfully" do
-    json = { "data" =>
-      {"phone" => "+13038758190",
-                  "name" => "John Doe",
-                  "activity" => "kayaking",
-                  "email" => "friend@example.com" }}
-    post '/alert', :text_info => json
+    json = { "phone": "+19192590877", "name": "John Doe", "activity": "kayaking", "email": "friend@example.com" }
+    post '/alert', :params => json
     expect(last_response).to be_ok
   end
 end

@@ -14,24 +14,29 @@ end
 
 post '/alert' do
   details = JSON.parse(request.body.read)
-  hifu_name = details["name"]
-  phone_number = details["phone"]
-  activity = details["activity"]
-  email = details["email"]
-  account_sid = ENV['TWILIO_SID']
-  auth_token = ENV['TWILIO_AUTH_TOKEN']
-  client = Twilio::REST::Client.new(account_sid, auth_token)
+  if details["name"].nil? || details["phone"].nil? || details["activity"].nil? || details["email"].nil?
+	   halt 500, "Sorry, there is information missing from your request. Please try again."
+  else
+    hifu_name = details["name"]
+    phone_number = details["phone"]
+    activity = details["activity"]
+    email = details["email"]
+    account_sid = ENV['TWILIO_SID']
+    auth_token = ENV['TWILIO_AUTH_TOKEN']
+    client = Twilio::REST::Client.new(account_sid, auth_token)
 
-  from = '+13344714617' # Your Twilio number
-  to = phone_number # Your mobile phone number
+    from = '+15005550000' # Your Twilio number
+    to = phone_number # Your mobile phone number
 
-  client.messages.create(
-  from: from,
-  to: to,
-  body: "Uh oh! Your friend #{hifu_name} has not checked in from their recent #{activity} trip.
-  Check your email at #{email} for more info and instructions for contacting the authorities."
-  )
+    client.messages.create(
+    from: from,
+    to: to,
+    body: "Uh oh! Your friend #{hifu_name} has not checked in from their recent #{activity} trip.
+    Check your email at #{email} for more info and instructions for contacting the authorities."
+    )
 
+    response.body = "Message sent successfully"
+  end
 end
 
 post '/sms-quickstart' do
