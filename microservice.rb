@@ -1,12 +1,9 @@
 require 'sinatra'
 require 'rubygems'
 require 'twilio-ruby'
-#require 'sinatra/base'
 require 'dotenv'
 require 'json'
 Dotenv.load
-
-#class Microservice < Sinatra::Base
 
   get '/' do
     "``````Welcome to HIFU -- For when you want to get lost but still be found!``````"
@@ -43,7 +40,7 @@ Dotenv.load
     twiml = Twilio::TwiML::MessagingResponse.new do |r|
       r.message(body: 'Please check your email for more information. This phone number is not monitored.')
     end
-
-    twiml.to_s
+    
+  twiml.to_s
 end
-#end
+
