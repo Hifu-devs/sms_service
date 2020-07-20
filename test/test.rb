@@ -12,6 +12,7 @@ class MicroserviceTest < MiniTest::Unit::TestCase
   end
 
   def test_hello_world
+   skip
    get '/'
    assert last_response.ok?
    assert_equal "``````Welcome to HIFU -- For when you want to get lost but still be found!``````", last_response.body
@@ -34,4 +35,11 @@ class MicroserviceTest < MiniTest::Unit::TestCase
     assert_equal 500, last_response.status
     assert_equal "Sorry, your message was not sent. The phone number is not formatted correctly. Please try again.", last_response.body
   end
+
+  def test_reply_functionality
+    post '/sms-quickstart'
+    assert last_response.ok?
+    assert_equal "Hifu Reply Sent", last_response.body
+  end
+
 end
