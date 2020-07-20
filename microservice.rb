@@ -6,7 +6,7 @@ require 'json'
 Dotenv.load
 
   get '/' do
-    "``````Welcome to HIFU -- For when you want to get lost but still be found!``````"
+    "Welcome to HIFU -- For when you want to get lost but still be found!"
   end
 
   post '/alert' do
@@ -25,12 +25,11 @@ Dotenv.load
       client = Twilio::REST::Client.new(account_sid, auth_token)
 
       from = '+13344714617' # Your Twilio number
-      to = phone_number # Your mobile phone number
+      to = phone_number # Emergency Contact's Phone Number
       client.messages.create(
         from: from,
         to: to,
-        body: "Uh oh! Your friend #{hifu_name} has not checked in from their recent #{activity} trip.
-        Check your email at #{email} for more info and instructions for contacting the authorities."
+        body: "Uh oh! Your friend #{hifu_name} has not checked in from their recent #{activity} trip. Check your email at #{email} for more info and instructions for contacting the authorities."
       )
           response.body = "Message sent successfully"
     end
@@ -41,6 +40,6 @@ Dotenv.load
       r.message(body: 'Please check your email for more information. This phone number is not monitored.')
     end
 
-  twiml.to_s
-  "Hifu Reply Sent"
+    twiml.to_s
+    "Hifu Reply Sent"
 end
