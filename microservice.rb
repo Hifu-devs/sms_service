@@ -1,12 +1,12 @@
 require 'sinatra'
 require 'rubygems'
 require 'twilio-ruby'
-require 'sinatra/base'
+#require 'sinatra/base'
 require 'dotenv'
 require 'json'
 Dotenv.load
 
-class Microservice < Sinatra::Base
+#class Microservice < Sinatra::Base
 
   get '/' do
     "``````Welcome to HIFU -- For when you want to get lost but still be found!``````"
@@ -46,4 +46,4 @@ class Microservice < Sinatra::Base
 
     twiml.to_s
 end
-end
+#end
