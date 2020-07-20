@@ -2,9 +2,9 @@
 
 This microservice is used to connect the Hifu API to Twilio SMS text messaging service.
 
-***Production Endpoints***
+**Production Endpoints**
 
-**Send Alert to Emergency Contact**
+***Send Alert to Emergency Contact***
 
 https://hifu-sms.herokuapp.com/alert
 
@@ -19,3 +19,6 @@ https://hifu-sms.herokuapp.com/alert
     ``{ "phone": "+13038758190", "name": "Krista Stadler", "activity": "kayaking", "email": "friend@example.com" }``
   - Response Body will come back as a string indicating the result of the action -- either that the text message was sent successfully or an explanation of the error
   - Part of the response is a text message sent to phone number indicated in request body.  
+  - Response codes:
+    - ``200`` Success / Text Message sent
+    - ``500`` Error / Text Message not sent
