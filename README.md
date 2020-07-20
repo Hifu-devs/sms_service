@@ -25,6 +25,6 @@ https://hifu-sms.herokuapp.com/alert
 
 **Additional Functionality**
 
-The https://hifu-sms.herokuapp.com/sms-quickstart has been set up to handle an message that comes in to our Twilio phone number. /n
+The https://hifu-sms.herokuapp.com/sms-quickstart has been set up to handle any message that comes in to our Twilio phone number.
 
 This endpoint shouldn't really need to be used by Hifu devs, but allows outside users to receive a response of 'Please check your email for more information. This phone number is not monitored' if they reply to our alert text message.
