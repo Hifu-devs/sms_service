@@ -65,6 +65,7 @@ DEPENDENCIES
   faraday
   figaro
   minitest
+  nokogiri
   pry
   rack
   rack-test

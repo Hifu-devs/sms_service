@@ -40,7 +40,7 @@ Dotenv.load
     twiml = Twilio::TwiML::MessagingResponse.new do |r|
       r.message(body: 'Please check your email for more information. This phone number is not monitored.')
     end
-    
-  twiml.to_s
-end
 
+  twiml.to_s
+  "Hifu Reply Sent"
+end

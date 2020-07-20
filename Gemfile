@@ -9,6 +9,7 @@ gem 'rack'
 gem 'faraday'
 gem 'figaro'
 gem 'dotenv'
+gem 'nokogiri'
 
 group :test do
   gem 'rack-test'
