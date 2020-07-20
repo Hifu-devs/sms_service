@@ -29,8 +29,7 @@ Dotenv.load
       client.messages.create(
         from: from,
         to: to,
-        body: "Uh oh! Your friend #{hifu_name} has not checked in from their recent #{activity} trip.
-        Check your email at #{email} for more info and instructions for contacting the authorities."
+        body: "Uh oh! Your friend #{hifu_name} has not checked in from their recent #{activity} trip. Check your email at #{email} for more info and instructions for contacting the authorities."
       )
           response.body = "Message sent successfully"
     end
