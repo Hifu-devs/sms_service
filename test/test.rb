@@ -12,10 +12,9 @@ class MicroserviceTest < MiniTest::Unit::TestCase
   end
 
   def test_hello_world
-   skip
    get '/'
    assert last_response.ok?
-   assert_equal "``````Welcome to HIFU -- For when you want to get lost but still be found!``````", last_response.body
+   assert_equal "Welcome to HIFU -- For when you want to get lost but still be found!", last_response.body
  end
 
   def test_sending_successfully

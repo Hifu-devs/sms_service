@@ -17,7 +17,6 @@ group :test do
   gem 'minitest'
 end
 
-
 group :development, :test do
   gem 'pry'
 end
