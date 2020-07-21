@@ -16,7 +16,7 @@ https://hifu-sms.herokuapp.com/alert
     - Email of the emergency contact as "email.
   - Expected Request Type: JSON
   - Example Request Body:
-    ``{ "phone": "+13038758190", "name": "Krista Stadler", "activity": "kayaking", "email": "friend@example.com" }``
+    ``{ "phone": "+15551234567", "name": "Joe Smith", "activity": "kayaking", "email": "friend@example.com" }``
   - Response Body will come back as a string indicating the result of the action -- either that the text message was sent successfully or an explanation of the error
   - Part of the response is a text message sent to phone number indicated in request body.  
   - Response codes:
