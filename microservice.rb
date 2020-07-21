@@ -41,6 +41,6 @@ Dotenv.load
     end
 
     twiml.to_s
-    
-    "Hifu Reply Sent"
+
+  #  "Hifu Reply Sent"
   end
