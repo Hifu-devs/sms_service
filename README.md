@@ -1,13 +1,33 @@
-**Purpose**
+# Hifu
+
+## When you want to get lost, but still be found
+
+### Overview
 
 This microservice is used to connect the Hifu API to Twilio SMS text messaging service.
 
-**Production Endpoints**
+### Authors
 
-***Send Alert to Emergency Contact***
+- [Margo Flewelling](https://github.com/margoflewelling)
+- [Krista Stadler](https://github.com/kristastadler)
+- [Brian Greeson](https://github.com/brian-greeson)
 
-https://hifu-sms.herokuapp.com/alert
+### Local Setup
 
+ - Clone
+ - bundle
+ - rails db:{create,migrate,seed}
+ - rails s
+ - All endpoints are available at: `https://hifu-sms.herokuapp.com/`
+
+ ### Production
+
+- The production version of this API is deployed to [https://hifu-api.herokuapp.com/]( https://hifu-api.herokuapp.com/)
+
+### Endpoints
+
+  - `alert`
+  - Description: Send text message alert to a user's emergency contact
   - Request Body should include:
     - Phone number of emergency contact as "phone."
       - This should be 12 characters and be formatted with a "+" character, followed by the country code ("1" for the United States), followed by the phone number without any punctuation
@@ -23,8 +43,7 @@ https://hifu-sms.herokuapp.com/alert
     - ``200`` Success / Text Message sent
     - ``500`` Error / Text Message not sent
 
-**Additional Functionality**
 
-The https://hifu-sms.herokuapp.com/sms-quickstart has been set up to handle any message that comes in to our Twilio phone number.
-
-This endpoint shouldn't really need to be used by Hifu devs, but allows outside users to receive a response of 'Please check your email for more information. This phone number is not monitored' if they reply to our alert text message.
+  - `sms-quickstart`
+  - Description: Set up to handle any message that comes in to our Twilio phone number.
+  - Additional Information: This endpoint shouldn't really need to be used by Hifu devs, but allows outside users to receive a response of 'Please check your email for more information. This phone number is not monitored' if they reply to our alert text message.
