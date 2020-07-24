@@ -43,6 +43,6 @@ This microservice is used to connect the Hifu API to Twilio SMS text messaging s
       - ``200`` Success / Text Message sent
       - ``500`` Error / Text Message not sent
 
-  - `sms-quickstart`
+  - `reply`
     - Description: Set up to handle any message that comes in to our Twilio phone number.
     - Additional Information: This endpoint shouldn't really need to be used by Hifu devs, but allows outside users to receive a response of 'Please check your email for more information. This phone number is not monitored' if they reply to our alert text message.
