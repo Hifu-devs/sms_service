@@ -36,7 +36,7 @@ class MicroserviceTest < MiniTest::Unit::TestCase
   end
 
   def test_reply_functionality
-    post '/sms-quickstart'
+    post '/reply'
     assert last_response.ok?
     assert last_response.body.include?("Please check your email for more information. This phone number is not monitored.")
   end
