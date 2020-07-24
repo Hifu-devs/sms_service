@@ -35,7 +35,7 @@ Dotenv.load
     end
   end
 
-  post '/sms-quickstart' do
+  post '/reply' do
     twiml = Twilio::TwiML::MessagingResponse.new do |r|
       r.message(body: 'Please check your email for more information. This phone number is not monitored.')
     end
