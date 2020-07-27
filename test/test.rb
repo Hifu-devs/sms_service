@@ -18,19 +18,20 @@ class MicroserviceTest < MiniTest::Unit::TestCase
  end
 
   def test_sending_successfully
-    post '/alert', {"phone"=> "+13038758190", "name"=> "John Doe", "activity"=> "kayaking", "email"=> "friend@example.com"}.to_json
+
+    post '/alert', "{\"data\":{\"id\":\"317\",\"type\":\"route\",\"attributes\":{\"activity\":\"seeing\",\"phone\":\"+17205775625\",\"name\":\"Miss Otha Swaniawski\",\"email\":\"test123@gmail.com\"}}}"
     assert last_response.ok?
     assert_equal "Message sent successfully", last_response.body
   end
 
   def test_missing_info
-    post '/alert', {"phone"=> "+13038758190", "activity"=> "kayaking", "email"=> "friend@example.com"}.to_json
+    post '/alert', "{\"data\":{\"id\":\"317\",\"type\":\"route\",\"attributes\":{\"phone\":\"+17205775625\",\"name\":\"Miss Otha Swaniawski\",\"email\":\"test123@gmail.com\"}}}"
     assert_equal 500, last_response.status
     assert_equal "Sorry, your message was not sent. There is information missing from your request. Please try again.", last_response.body
   end
 
   def test_incorrect_phone_number
-    post '/alert', {"phone"=> "+1303875819", "name"=> "John Doe", "activity"=> "kayaking", "email"=> "friend@example.com"}.to_json
+    post '/alert', "{\"data\":{\"id\":\"317\",\"type\":\"route\",\"attributes\":{\"activity\":\"seeing\",\"phone\":\"+1705775625\",\"name\":\"Miss Otha Swaniawski\",\"email\":\"test123@gmail.com\"}}}"
     assert_equal 500, last_response.status
     assert_equal "Sorry, your message was not sent. The phone number is not formatted correctly. Please try again.", last_response.body
   end

@@ -11,15 +11,15 @@ Dotenv.load
 
   post '/alert' do
     details = JSON.parse(request.body.read)
-    if details["name"].nil? || details["phone"].nil? || details["activity"].nil? || details["email"].nil?
+    if details["data"]["attributes"]["name"].nil? || details["data"]["attributes"]["phone"].nil? || details["data"]["attributes"]["activity"].nil? || details["data"]["attributes"]["email"].nil?
   	   halt 500, "Sorry, your message was not sent. There is information missing from your request. Please try again."
-    elsif details["phone"].length != 12
+    elsif details["data"]["attributes"]["phone"].length != 12
        halt 500, "Sorry, your message was not sent. The phone number is not formatted correctly. Please try again."
     else
-      hifu_name = details["name"]
-      phone_number = details["phone"]
-      activity = details["activity"]
-      email = details["email"]
+      hifu_name = details["data"]["attributes"]["name"]
+      phone_number = details["data"]["attributes"]["phone"]
+      activity = details["data"]["attributes"]["activity"]
+      email = details["data"]["attributes"]["email"]
       account_sid = ENV['TWILIO_SID']
       auth_token = ENV['TWILIO_AUTH_TOKEN']
       client = Twilio::REST::Client.new(account_sid, auth_token)
